@@ -4,6 +4,8 @@ const Iterinary = require('./iterinary');
 const IterinaryExpedition = require('./iterinaryExpedition');
 const User = require('./user');
 const ResetPassword = require('./resetPassword')
+const Billet = require('./billet')
+const Subscribe = require('./subscribe')
 
 module.exports =  {
     Station,
@@ -11,5 +13,7 @@ module.exports =  {
     Iterinary,
     IterinaryExpedition,
     User,
-    ResetPassword
+    ResetPassword,
+    Billet,
+    Subscribe
 }

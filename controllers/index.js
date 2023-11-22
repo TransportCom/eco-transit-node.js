@@ -14,6 +14,8 @@ function init() {
 	router.use("/expedition", require("./expedition").router(U, E, M));
 	router.use("/iterinary", require("./iterinary").router(U, E, M));
 	router.use("/user", require("./user").router(U,E,M))
+	router.use("/", require('./billet/billtetRouter.js'))
+	router.use("/", require('./subscribe/subscribeRouter.js'))
 }
 
 module.exports = function (utils, errors, middlewares) {
