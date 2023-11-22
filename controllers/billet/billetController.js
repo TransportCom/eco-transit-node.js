@@ -81,6 +81,7 @@ module.exports = {
     try {
       const billetId = req.params.id;
       const billet = await models.Billet.findById(billetId);
+      console.log(billet)
 
       if (!billet) {
         return res.status(404).json({
@@ -89,7 +90,7 @@ module.exports = {
         });
       }
 
-      await billet.remove();
+      const result = await models.Billet.deleteOne({ _id: billetId });
 
       return res.status(200).json({
         statusCode: 200,

@@ -86,7 +86,7 @@ module.exports = {
         });
       }
 
-      await subscribe.remove();
+      const result = await models.Subscribe.deleteOne({ _id: subscribeId });
 
       return res.status(200).json({
         statusCode: 200,
