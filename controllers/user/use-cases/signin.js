@@ -33,7 +33,8 @@ module.exports = function makeSignin(db,bcrypt,jwt,E,utils) {
             email: foundUser.email,
             role: foundUser.role,
             createdAt: foundUser.createdAt,
-            loginStamp : String(loginStamp)
+            loginStamp : String(loginStamp),
+            tel : foundUser.tel
         };
     
         var accessToken = jwt.sign({ data: payload }, process.env.SignKey, {

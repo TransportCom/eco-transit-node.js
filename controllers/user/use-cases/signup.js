@@ -16,8 +16,6 @@ module.exports = function makeSignup (db,bcrypt,jwt,E,utils) {
         })
         const result = await user.save()
         
-        
-
         var accessToken = jwt.sign({ data: result }, process.env.SignKey, {
             expiresIn: "7d",
         });
