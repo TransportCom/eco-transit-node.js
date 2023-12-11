@@ -3,6 +3,8 @@ module.exports = function makeJsonverify(db,jwt,E,utils) {
         const bearerHeader = req.headers["authorization"];
         if (typeof bearerHeader !== "undefined") {
             const token = bearerHeader.split(" ")[1];
+
+            console.log(bearerHeader)
     
             try {
                 var decoded = jwt.verify(token, process.env.SignKey); //"wrong-secret");
@@ -13,6 +15,9 @@ module.exports = function makeJsonverify(db,jwt,E,utils) {
                 const user = await db.User.findById(decoded.data.id );
                 if (user && !user.verified) {
                     throw new E.UserNotAuthenticated("user not verified");
+                }
+                if (user && !user.isActive) {
+                    throw new E.UserNotAuthenticated("user not active");
                 }
                 if (user && String(user.loginStamp) != String(decoded.data.loginStamp)) {
                     console.log(String(user.loginStamp),String(decoded.data.loginStamp))

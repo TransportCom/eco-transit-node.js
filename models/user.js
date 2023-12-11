@@ -7,6 +7,7 @@ const userScheme = new mongoose.Schema({
     name : String,
     lastname : String,
     verified : Boolean,
+    isActive : Boolean,
     loginStamp : Date,
     role : String,
     tel : String

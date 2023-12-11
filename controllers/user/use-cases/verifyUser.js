@@ -22,6 +22,7 @@ module.exports = function makeVerifyUser(db,E,utils) {
             }
         )
         let response = await db.User.findById(id);
+        
 
         
     

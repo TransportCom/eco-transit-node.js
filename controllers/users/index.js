@@ -11,6 +11,7 @@ let usecases
 function init() {
 	usecases = maker(utils,E)
 	router.get("/", makeCallback(usecases.getUsers));
+	router.get("/active/:id", makeCallback(usecases.active));
 }
 
 

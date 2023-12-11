@@ -11,6 +11,7 @@ module.exports = function makeSignup (db,bcrypt,jwt,E,utils) {
             name, 
             lastname,
             verified : boolVerified,
+            isActive : boolVerified,
             role,
             tel,
         })
